@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quilombo da Baixa – Centro de Memória Cultural</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+<style>
+:root {
+  --vermelho: #8C1010;
+  --vermelho-escuro: #5E0808;
+  --vermelho-medio: #A01515;
+  --branco: #ffffff;
+  --cinza-claro: #f5f5f5;
+  --cinza: #e0e0e0;
+  --texto-escuro: #1a1a1a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f5f5f5;
+  color: var(--texto-escuro);
+  margin: 0;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  background: var(--vermelho-escuro) !important;
+  padding: 0;
+  min-height: 70px;
+}
+.navbar-brand {
+  color: #fff !important;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  padding: 10px 0;
+}
+.navbar-brand small {
+  font-size: 0.55rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  display: block;
+  color: rgba(255,255,255,0.75);
+}
+.navbar-brand .brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.brand-icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.brand-icon img,
+.footer-brand-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.nav-link {
+  color: rgba(255,255,255,0.85) !important;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 24px 14px !important;
+  transition: color 0.2s;
+}
+.nav-link:hover { color: #fff !important; }
+.nav-item-history {
+  position: relative;
+}
+.nav-item-history .nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-item-history .nav-link::after {
+  content: "\f107";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 0.7rem;
+  opacity: 0.8;
+}
+.history-dropdown {
+  position: absolute;
+  top: calc(100% - 8px);
+  left: 0;
+  width: min(420px, 80vw);
+  padding: 18px 18px 16px;
+  border-radius: 14px;
+  background: rgba(92, 8, 8, 0.98);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  z-index: 40;
+}
+.history-dropdown::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 28px;
+  width: 16px;
+  height: 16px;
+  background: rgba(92, 8, 8, 0.98);
+  border-left: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  transform: rotate(45deg);
+}
+.nav-item-history:hover .history-dropdown,
+.nav-item-history:focus-within .history-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.history-dropdown h4 {
+  color: #fff;
+  font-size: 0.78rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+}
+.history-dropdown p {
+  margin: 0;
+  color: rgba(255,255,255,0.82);
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+.navbar-socials a {
+  color: rgba(255,255,255,0.8);
+  font-size: 1.1rem;
+  margin-left: 12px;
+  transition: color 0.2s;
+}
+.navbar-socials a:hover { color: #fff; }
+.navbar-toggler {
+  border-color: rgba(255,255,255,0.4);
+}
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255%2c255%2c255%2c0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+.grafismo-bar {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  background: #bf2026;
+}
+.grafismo-bar svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.grafismo-bar.top {
+  height: 14px;
+}
+.grafismo-bar.bottom {
+  height: 56px;
+}
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 70px;
+  position: relative;
+}
+.hero-eyebrow {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.75rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.hero-eyebrow::after {
+  content: '';
+  display: inline-block;
+  width: 60px;
+  height: 1px;
+  background: rgba(255,255,255,0.4);
+}
+.hero h1 {
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
+.hero-tagline {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.85rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.hero-desc {
+  color: rgba(255,255,255,0.8);
+  font-size: 1rem;
+  max-width: 420px;
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+.btn-hero-primary {
+  background: var(--vermelho);
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.btn-hero-primary:hover { background: var(--vermelho-escuro); color: #fff; }
+.btn-hero-secondary {
+  background: transparent;
+  border: 2px solid rgba(255,255,255,0.5);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: border-color 0.2s;
+}
+.btn-hero-secondary:hover { border-color: #fff; color: #fff; }
+
+/* ===== ACERVO QUICK BAR ===== */
+.acervo-bar {
+  background: #fff;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.12);
+  margin-top:0 !important;
+  position: relative;
+  z-index: 10;
+  border-radius: 4px;
+}
+.acervo-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 28px 20px;
+  border-right: 1px solid var(--cinza);
+  cursor: pointer;
+  transition: background 0.2s;
+  text-decoration: none;
+  color: inherit;
+}
+.acervo-item:last-child { border-right: none; }
+.acervo-item:hover { background: #fafafa; }
+.acervo-icon {
+  width: 48px;
+  height: 48px;
+  border: 1.5px solid var(--cinza);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--vermelho);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.acervo-label {
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--texto-escuro);
+  line-height: 1.3;
+}
+.acervo-sub {
+  font-size: 0.72rem;
+  color: #777;
+  margin-top: 3px;
+}
+
+/* ===== SECTIONS ===== */
+.section-title {
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--texto-escuro);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-title::before {
+  content: '—';
+  color: var(--vermelho);
+  font-weight: 900;
+}
+.section-title.white { color: #fff; }
+.section-title.white::before { color: rgba(255,255,255,0.6); }
+
+/* ===== NOTICIAS ===== */
+#noticias { background: #fff; padding: 80px 0; }
+.noticia-card {
+  background: #fff;
+  border: 1px solid var(--cinza);
+  border-radius: 2px;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+  height: 100%;
+}
+.noticia-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.12); }
+.noticia-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+.noticia-body { padding: 18px; }
+.noticia-date {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--vermelho);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.noticia-titulo {
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--texto-escuro);
+  margin-bottom: 10px;
+}
+.leia-mais {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--vermelho);
+  text-decoration: none;
+}
+.leia-mais:hover { color: var(--vermelho-escuro); }
+.leia-mais i { font-size: 0.6rem; margin-left: 4px; }
+
+/* ===== AGENDA ===== */
+.agenda-card {
+  background: #fff;
+  border: 1px solid var(--cinza);
+  border-radius: 2px;
+  padding: 24px;
+}
+.agenda-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--cinza);
+}
+.agenda-item:last-child { border-bottom: none; }
+.agenda-date-box {
+  background: var(--vermelho);
+  color: #fff;
+  width: 50px;
+  min-width: 50px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px;
+  font-weight: 900;
+  line-height: 1;
+}
+.agenda-date-box .day { font-size: 1.3rem; }
+.agenda-date-box .month { font-size: 0.55rem; letter-spacing: 1px; text-transform: uppercase; }
+.agenda-info .titulo { font-weight: 700; font-size: 0.85rem; margin-bottom: 4px; }
+.agenda-info .hora, .agenda-info .local {
+  font-size: 0.72rem;
+  color: #777;
+  line-height: 1.5;
+}
+.btn-agenda {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  background: var(--vermelho);
+  color: #fff;
+  text-align: center;
+  padding: 12px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.btn-agenda:hover { background: var(--vermelho-escuro); color: #fff; }
+
+/* ===== GALERIA ===== */
+#galeria { background: #1a1a1a; padding: 80px 0; }
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 200px 200px;
+  gap: 8px;
+}
+.galeria-item {
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+.galeria-item:first-child {
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+}
+.galeria-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.galeria-item:hover .galeria-img { transform: scale(1.06); }
+.galeria-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(140,16,16,0);
+  transition: background 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.galeria-item:hover .galeria-overlay { background: rgba(140,16,16,0.4); }
+.galeria-overlay i { color: #fff; font-size: 2rem; opacity: 0; transition: opacity 0.3s; }
+.galeria-item:hover .galeria-overlay i { opacity: 1; }
+
+/* ===== STATS BAR ===== */
+.stats-bar {
+  background: var(--vermelho-escuro);
+  padding: 50px 0;
+  position: relative;
+  overflow: hidden;
+}
+.stats-bar::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255,255,255,0.15) 0,
+    rgba(255,255,255,0.15) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+}
+.stat-item { text-align: center; }
+.stat-icon { font-size: 2rem; color: rgba(255,255,255,0.5); margin-bottom: 10px; }
+.stat-num {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+}
+.stat-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-top: 6px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--vermelho-escuro);
+  color: rgba(255,255,255,0.8);
+  padding: 60px 0 0;
+}
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.footer-brand-icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #fff;
+}
+.footer-brand-name {
+  color: #fff;
+  font-weight: 900;
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+.footer-brand-tagline {
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+}
+.footer p { font-size: 0.85rem; line-height: 1.8; color: rgba(255,255,255,0.6); }
+.footer-col-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 16px;
+}
+.footer-links { list-style: none; padding: 0; margin: 0; }
+.footer-links li { margin-bottom: 8px; }
+.footer-links a {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: #fff; }
+.footer-contact { font-size: 0.85rem; }
+.footer-contact p { margin-bottom: 6px; display: flex; align-items: flex-start; gap: 8px; }
+.footer-contact i { color: rgba(255,255,255,0.5); margin-top: 3px; min-width: 14px; }
+.footer-socials { margin-top: 16px; }
+.footer-socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  color: rgba(255,255,255,0.7);
+  font-size: 0.9rem;
+  margin-right: 6px;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.footer-socials a:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  border-color: rgba(255,255,255,0.4);
+}
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin-top: 50px;
+  padding: 20px 0;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+}
+.footer-bottom a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 700;
+}
+.footer-bottom a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (max-width: 992px) {
+  .galeria-grid { grid-template-columns: repeat(2,1fr); grid-template-rows: repeat(3,180px); }
+  .galeria-item:first-child { grid-column: 1/3; grid-row: 1/2; }
+  .acervo-item { border-right: none; border-bottom: 1px solid var(--cinza); }
+  .acervo-item:last-child { border-bottom: none; }
+}
+@media (max-width: 576px) {
+  .hero h1 { font-size: 2.8rem; }
+  .galeria-grid { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3,140px); }
+}
+</style>
+
+<style>
+/* Hero continua fullscreen, mas nada sobrepõe a imagem */
+.acervo-box,.acervo,.floating-box,.hero-cards{
+  position:relative !important;
+  margin-top:0 !important;
+  top:auto !important;
+  bottom:auto !important;
+  transform:none !important;
+  z-index:1 !important;
+}
+.hero{
+  overflow:hidden;
+}
+.hero + section,
+.hero + .container,
+.hero + .acervo-box{
+  margin-top:0 !important;
+}
+</style>
+
+
+<style>
+.hero::before,
+.hero:before,
+.overlay,
+.hero-overlay{
+    background: linear-gradient(90deg, rgba(0,0,0,.12), rgba(0,0,0,0)) !important;
+    opacity: 1 !important;
+}
+.hero img,
+.hero-image,
+.hero-bg{
+    filter: brightness(1.12) contrast(1.08) saturate(1.15) !important;
+    opacity: 1 !important;
+}
+</style>
+
+
+<style>
+.hero {
+  background:
+    linear-gradient(90deg, rgba(35, 5, 5, 0.74) 0%, rgba(74, 8, 8, 0.52) 33%, rgba(90, 10, 10, 0.18) 58%, rgba(90, 10, 10, 0.06) 100%),
+    url("https://cdn.bncamazonas.com.br/wp-content/uploads/2025/11/db6ceea1-efa9-480e-b610-e8eeb66a6826.jpeg") center center / cover no-repeat !important;
+  min-height: 78vh;
+  display: flex !important;
+  align-items: center;
+  padding: 112px 0 82px;
+}
+.hero .container,
+.hero .row > .col-lg-5,
+.hero .content,
+.hero-content,
+.hero-text,
+.hero-caption {
+  display: block !important;
+}
+.hero-grid {
+  align-items: center;
+}
+.hero-copy {
+  max-width: 470px;
+}
+.hero-desc {
+  max-width: 390px;
+  color: rgba(255,255,255,0.9);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin-bottom: 28px;
+}
+.hero-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.hero .btn-hero-primary,
+.hero .btn-hero-secondary {
+  font-size: 0.68rem;
+  letter-spacing: 1.4px;
+  padding: 11px 18px;
+}
+.hero .btn-hero-secondary {
+  border-color: rgba(255,255,255,0.26);
+  background: rgba(26, 2, 2, 0.42);
+}
+#acervo .container {
+  position: relative;
+  margin-top: -40px;
+  z-index: 12;
+}
+.acervo-bar {
+  border: 1px solid rgba(118, 21, 21, 0.08);
+  box-shadow: 0 12px 34px rgba(0,0,0,0.14);
+}
+@media (max-width: 991px) {
+  .hero {
+    min-height: 62vh;
+    padding: 102px 0 70px;
+    background-position: 66% center !important;
+  }
+  .hero-copy {
+    max-width: none;
+  }
+  #acervo .container {
+    margin-top: -24px;
+  }
+}
+@media (max-width: 576px) {
+  .hero {
+    min-height: 70vh;
+    padding: 98px 0 58px;
+    background-position: 72% center !important;
+  }
+  .hero-actions .btn-hero-primary,
+  .hero-actions .btn-hero-secondary {
+    width: 100%;
+    text-align: center;
+  }
+  #acervo .container {
+    margin-top: -18px;
+  }
+  .grafismo-bar.top {
+    height: 10px;
+  }
+  .grafismo-bar.bottom {
+    height: 38px;
+  }
+}
+@media (max-width: 991px) {
+  .nav-item-history {
+    position: static;
+  }
+  .history-dropdown {
+    position: static;
+    width: 100%;
+    margin: 0 14px 16px;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    display: none;
+  }
+  .history-dropdown::before {
+    display: none;
+  }
+  .nav-item-history:hover .history-dropdown,
+  .nav-item-history:focus-within .history-dropdown {
+    display: block;
+  }
+}
+</style>
+
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="quilombo_sem_textos_hero_FINAL_v2.html">
+      <div class="brand-logo">
+        <div class="brand-icon"><img src="logo-quilombo-pessoas.png" alt="Símbolo do Quilombo da Baixa da Xanda"></div>
+        <div>
+          QUILOMBO<br>DA BAIXA
+          <small>MEMÓRIA • RESISTÊNCIA • IDENTIDADE</small>
+        </div>
+      </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMain">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="quilombo_sem_textos_hero_FINAL_v2.html">Início</a></li>
+        <li class="nav-item nav-item-history">
+          <a class="nav-link" href="historia.html">História</a>
+          <div class="history-dropdown">
+            <h4>Baixa da Xanda</h4>
+            <p>Localizada em Parintins (AM), Baixa da Xanda é uma comunidade de pescadores pretos, ribeirinhos e indígenas. Com esse reconhecimento oficial, a certificação permite garantir direitos e proteger o território, além de valorizar sua cultura, validando uma trajetória de resistência, ancestralidade e contribuição cultural da comunidade.</p>
+          </div>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="memoria.html">Memória</a></li>
+        <li class="nav-item"><a class="nav-link" href="acervo.html">Acervo</a></li>
+        <li class="nav-item"><a class="nav-link" href="noticias.html">Notícias</a></li>
+        <li class="nav-item"><a class="nav-link" href="galeria.html">Galeria</a></li>
+        <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
+      </ul>
+      <div class="navbar-socials d-flex align-items-center">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="grafismo-bar top" aria-hidden="true">
+  <svg viewBox="0 0 1280 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <pattern id="grafismoPatternTop" width="160" height="56" patternUnits="userSpaceOnUse">
+        <rect width="160" height="56" fill="#bf2026"/>
+        <g fill="#f2b43c">
+          <polygon points="0,28 8,10 18,14 12,28 18,42 8,46"/>
+          <polygon points="24,8 40,8 34,28 40,48 24,48 30,28"/>
+          <polygon points="48,6 62,14 62,42 48,50 52,28"/>
+          <polygon points="72,8 84,8 92,20 92,36 84,48 72,48 80,28"/>
+          <polygon points="102,6 116,16 116,40 102,50 96,28"/>
+          <polygon points="128,8 144,8 138,28 144,48 128,48 134,28"/>
+        </g>
+      </pattern>
+    </defs>
+    <rect width="1280" height="56" fill="url(#grafismoPatternTop)"/>
+  </svg>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="inicio">
+  <div class="container">
+    <div class="row hero-grid">
+      <div class="col-lg-6 col-xl-5">
+        <div class="hero-copy">
+          <div class="hero-eyebrow">CENTRO DE MEMÓRIA CULTURAL</div>
+          <h1>QUILOMBO<br>DA BAIXA</h1>
+          <p class="hero-tagline">MEMÓRIA • RESISTÊNCIA • IDENTIDADE</p>
+          <p class="hero-desc">Preservando histórias, valorizando a cultura e fortalecendo a identidade da nossa comunidade.</p>
+          <div class="hero-actions">
+            <a href="historia.html" class="btn-hero-primary">Conheça Nossa História</a>
+            <a href="acervo.html" class="btn-hero-secondary">Acervo Digital</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ACERVO BAR ===== -->
+<div id="acervo">
+  <div class="container">
+    <div class="acervo-bar">
+      <div class="row g-0">
+        <div class="col-6 col-md-3">
+          <a href="galeria.html" class="acervo-item d-flex">
+            <div class="acervo-icon"><i class="fa fa-camera"></i></div>
+            <div>
+              <div class="acervo-label">Fotografias</div>
+              <div class="acervo-sub">Imagens que contam nossa história</div>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-3">
+          <a href="acervo.html#documentos" class="acervo-item d-flex">
+            <div class="acervo-icon"><i class="fa fa-file-alt"></i></div>
+            <div>
+              <div class="acervo-label">Documentos</div>
+              <div class="acervo-sub">Registros que preservam nossa memória</div>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-3">
+          <a href="acervo.html#videos" class="acervo-item d-flex">
+            <div class="acervo-icon"><i class="fa fa-video"></i></div>
+            <div>
+              <div class="acervo-label">Vídeos</div>
+              <div class="acervo-sub">Histórias, festividades e tradições</div>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-3">
+          <a href="acervo.html#depoimentos" class="acervo-item d-flex">
+            <div class="acervo-icon"><i class="fa fa-microphone"></i></div>
+            <div>
+              <div class="acervo-label">Depoimentos</div>
+              <div class="acervo-sub">Vozes que guardam nossa essência</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== NOTÍCIAS + AGENDA ===== -->
+<section id="noticias" style="padding: 80px 0; background: #fff;">
+  <div class="container">
+    <div class="row g-5">
+      <!-- Notícias -->
+      <div class="col-lg-8">
+        <div class="section-title">Últimas Notícias</div>
+        <div class="row g-3">
+          <div class="col-sm-6">
+            <div class="noticia-card">
+              <img src="https://www.gov.br/igualdaderacial/pt-br/assuntos/noticias/baixa-da-xanda-no-norte-do-pais-e-reconhecida-como-comunidade-remanescente-de-quilombo/20250612-divulgacao.jpg" class="noticia-img" alt="Festival Cultural">
+              <div class="noticia-body">
+                <div class="noticia-date">12 Jun 2026</div>
+                <div class="noticia-titulo">Festival Cultural reúne moradores e visitantes</div>
+                <a href="noticias.html" class="leia-mais">Leia mais <i class="fa fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="noticia-card">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrWpRLNja2zhjJb5_pxi7pvr8HxNjytYgD_V4qg9bv8f6HZxl0WrFjc5o&s" class="noticia-img" alt="Acervo">
+              <div class="noticia-body">
+                <div class="noticia-date">08 Jun 2026</div>
+                <div class="noticia-titulo">Acervo histórico recebe novos documentos</div>
+                <a href="noticias.html" class="leia-mais">Leia mais <i class="fa fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="noticia-card">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSsK4JvfCBIWarup_TFD_n5amwHZbp7CRWKXXtxKt1gtXdOb04HIetmxo&s" class="noticia-img" alt="Tradições">
+              <div class="noticia-body">
+                <div class="noticia-date">02 Jun 2026</div>
+                <div class="noticia-titulo">Tradições quilombolas são celebradas</div>
+                <a href="noticias.html" class="leia-mais">Leia mais <i class="fa fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="noticia-card">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAfZSRFpQWzSreVKXOb3mcnMKOWiof4HL0Sl4ru8uI0gdeZ9g7NG42mjk&s" class="noticia-img" alt="Comunidade">
+              <div class="noticia-body">
+                <div class="noticia-date">28 Mai 2026</div>
+                <div class="noticia-titulo">Comunidade realiza mutirão de preservação</div>
+                <a href="noticias.html" class="leia-mais">Leia mais <i class="fa fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Agenda -->
+      <div class="col-lg-4">
+        <div class="section-title">Agenda Cultural</div>
+        <div class="agenda-card">
+          <div class="agenda-item">
+            <div class="agenda-date-box">
+              <span class="day">12</span>
+              <span class="month">Jul</span>
+            </div>
+            <div class="agenda-info">
+              <div class="titulo">Festival Cultural do Quilombo</div>
+              <div class="hora"><i class="fa fa-clock me-1" style="color:var(--vermelho)"></i>18h00</div>
+              <div class="local"><i class="fa fa-map-marker-alt me-1" style="color:var(--vermelho)"></i>Praça da Comunidade</div>
+            </div>
+          </div>
+          <div class="agenda-item">
+            <div class="agenda-date-box">
+              <span class="day">20</span>
+              <span class="month">Jul</span>
+            </div>
+            <div class="agenda-info">
+              <div class="titulo">Exposição de Fotografias</div>
+              <div class="hora"><i class="fa fa-clock me-1" style="color:var(--vermelho)"></i>16h00</div>
+              <div class="local"><i class="fa fa-map-marker-alt me-1" style="color:var(--vermelho)"></i>Centro de Memória</div>
+            </div>
+          </div>
+          <div class="agenda-item">
+            <div class="agenda-date-box">
+              <span class="day">28</span>
+              <span class="month">Jul</span>
+            </div>
+            <div class="agenda-info">
+              <div class="titulo">Reunião Comunitária</div>
+              <div class="hora"><i class="fa fa-clock me-1" style="color:var(--vermelho)"></i>14h00</div>
+              <div class="local"><i class="fa fa-map-marker-alt me-1" style="color:var(--vermelho)"></i>Sede da Associação</div>
+            </div>
+          </div>
+          <a href="contato.html#agenda" class="btn-agenda">Ver Toda a Agenda</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALERIA ===== -->
+<section id="galeria">
+  <div class="container">
+    <div class="section-title white mb-4">Galeria</div>
+    <div class="galeria-grid">
+      <div class="galeria-item">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjbuJHErAlg2J4uOtWoN1mNT70UsMTqLh5fEW9PO8zDQ&s" class="galeria-img" alt="Galeria 1">
+        <div class="galeria-overlay"><i class="fa fa-expand"></i></div>
+      </div>
+      <div class="galeria-item">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRF1e_RfwRIkeG6IZy7JJFYXcyXpU_PCORgx0inbwWL4w&s" class="galeria-img" alt="Galeria 2">
+        <div class="galeria-overlay"><i class="fa fa-expand"></i></div>
+      </div>
+      <div class="galeria-item">
+        <img src="https://radaramazonico.com.br/wp-content/uploads/2025/06/whatsapp_image_2025-06-06_at_10.33.37.webp" class="galeria-img" alt="Galeria 3">
+        <div class="galeria-overlay"><i class="fa fa-expand"></i></div>
+      </div>
+      <div class="galeria-item">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY1BNzWFDl_buwH6nwSiK9EUUNAVEybAaiCw&s" class="galeria-img" alt="Galeria 4">
+        <div class="galeria-overlay"><i class="fa fa-expand"></i></div>
+      </div>
+      <div class="galeria-item">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrb6ZPq-Oq86Jfx31TZPtVdOU8EhiInu8bPA&s" class="galeria-img" alt="Galeria 5">
+        <div class="galeria-overlay"><i class="fa fa-expand"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATS ===== -->
+<section class="stats-bar">
+  <div class="container">
+    <div class="row text-center g-4">
+      <div class="col-6 col-md-4">
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fa fa-users"></i></div>
+          <div class="stat-num">120+</div>
+          <div class="stat-label">Famílias</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4">
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fa fa-history"></i></div>
+          <div class="stat-num">1</div>
+          <div class="stat-label">Século de Resistência</div>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="stat-item">
+          <div class="stat-icon"><i class="fa fa-heart"></i></div>
+          <div class="stat-num">∞</div>
+          <div class="stat-label">Cultura que Transforma</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="grafismo-bar bottom" aria-hidden="true">
+  <svg viewBox="0 0 1280 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <pattern id="grafismoPatternBottom" width="160" height="56" patternUnits="userSpaceOnUse">
+        <rect width="160" height="56" fill="#bf2026"/>
+        <g fill="#f2b43c">
+          <polygon points="0,28 8,10 18,14 12,28 18,42 8,46"/>
+          <polygon points="24,8 40,8 34,28 40,48 24,48 30,28"/>
+          <polygon points="48,6 62,14 62,42 48,50 52,28"/>
+          <polygon points="72,8 84,8 92,20 92,36 84,48 72,48 80,28"/>
+          <polygon points="102,6 116,16 116,40 102,50 96,28"/>
+          <polygon points="128,8 144,8 138,28 144,48 128,48 134,28"/>
+        </g>
+      </pattern>
+    </defs>
+    <rect width="1280" height="56" fill="url(#grafismoPatternBottom)"/>
+  </svg>
+</div>
+<!-- ===== FOOTER ===== -->
+<footer id="contato">
+  <div class="container">
+    <div class="row g-5">
+      <!-- Brand -->
+      <div class="col-lg-4 col-md-6">
+        <div class="footer-brand">
+          <div class="footer-brand-icon"><img src="logo-quilombo-pessoas.png" alt="Símbolo do Quilombo da Baixa da Xanda"></div>
+          <div>
+            <div class="footer-brand-name">QUILOMBO DA BAIXA</div>
+            <div class="footer-brand-tagline">Memória • Resistência • Identidade</div>
+          </div>
+        </div>
+        <p>Portal de memória e cultura do Quilombo da Baixa. Preservando nossas raízes e fortalecendo nossa identidade para as gerações futuras.</p>
+        <div class="footer-socials">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <!-- Institucional -->
+      <div class="col-lg-2 col-md-6 col-6">
+        <div class="footer-col-title">— Institucional</div>
+        <ul class="footer-links">
+          <li><a href="historia.html">Quem Somos</a></li>
+          <li><a href="historia.html#trajetoria">História do Quilombo</a></li>
+          <li><a href="historia.html#valores">Missão e Valores</a></li>
+          <li><a href="memoria.html">Memória</a></li>
+        </ul>
+      </div>
+      <!-- Acervo -->
+      <div class="col-lg-2 col-md-6 col-6">
+        <div class="footer-col-title">— Acervo</div>
+        <ul class="footer-links">
+          <li><a href="galeria.html">Fotografias</a></li>
+          <li><a href="acervo.html#documentos">Documentos</a></li>
+          <li><a href="acervo.html#videos">Vídeos</a></li>
+          <li><a href="acervo.html#depoimentos">Depoimentos</a></li>
+        </ul>
+      </div>
+      <!-- Links -->
+      <div class="col-lg-2 col-md-6 col-6">
+        <div class="footer-col-title">— Links</div>
+        <ul class="footer-links">
+          <li><a href="noticias.html">Notícias</a></li>
+          <li><a href="galeria.html">Galeria</a></li>
+          <li><a href="contato.html#agenda">Agenda</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+      <!-- Contato -->
+      <div class="col-lg-2 col-md-6 col-6">
+        <div class="footer-col-title">— Contato</div>
+        <div class="footer-contact">
+          <p><i class="fa fa-phone"></i>(92) 99999-9999</p>
+          <p><i class="fa fa-envelope"></i>contato@quilombodabaixa.org.br</p>
+          <p><i class="fa fa-map-marker-alt"></i>, Baixa da Xanda, Parintins, Amazonas, Braisil.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center">
+      <span>© 2026 Quilombo da Baixa. Todos os direitos reservados.</span>
+      <span>Desenvolvido com orgulho por <a href="https://www.instagram.com/rey_monteverde/" target="_blank" rel="noopener noreferrer">Reinaldo Monteverde</a> para nossa comunidade.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
