@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Memória - Quilombo da Baixa</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+<style>
+:root{--vermelho:#8C1010;--vermelho-escuro:#5E0808;--texto-escuro:#1a1a1a}
+*{box-sizing:border-box}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#f5f5f5;color:var(--texto-escuro);margin:0}
+.navbar{background:var(--vermelho-escuro)!important;padding:0;min-height:70px}
+.navbar-brand{color:#fff!important;font-size:1rem;font-weight:900;letter-spacing:.5px;line-height:1.2;padding:10px 0}
+.navbar-brand small{font-size:.55rem;font-weight:400;letter-spacing:2px;display:block;color:rgba(255,255,255,.75)}
+.brand-logo{display:flex;align-items:center;gap:10px}
+.brand-icon,.footer-brand-icon{width:56px;height:56px;background:rgba(255,255,255,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}
+.brand-icon img,.footer-brand-icon img{width:100%;height:100%;object-fit:cover;display:block}
+.nav-link{color:rgba(255,255,255,.85)!important;font-weight:600;font-size:.8rem;letter-spacing:1px;text-transform:uppercase;padding:24px 14px!important}
+.nav-link.active,.nav-link:hover{color:#fff!important}
+.navbar-socials a{color:rgba(255,255,255,.8);font-size:1.1rem;margin-left:12px}
+.navbar-toggler{border-color:rgba(255,255,255,.4)}
+.navbar-toggler-icon{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255%2c255%2c255%2c0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")}
+.grafismo-bar{width:100%;overflow:hidden;line-height:0;background:#bf2026}
+.grafismo-bar svg{display:block;width:100%;height:100%}
+.grafismo-bar.top{height:14px;margin-top:70px}
+.grafismo-bar.bottom{height:56px}
+.page-hero{background:linear-gradient(90deg,rgba(70,0,0,.9),rgba(70,0,0,.7)),url("https://cdn.bncamazonas.com.br/wp-content/uploads/2025/11/db6ceea1-efa9-480e-b610-e8eeb66a6826.jpeg") center/cover;color:#fff;padding:90px 0 70px}
+.page-eyebrow{color:rgba(255,255,255,.75);font-size:.78rem;letter-spacing:4px;text-transform:uppercase;margin-bottom:16px}
+.page-hero h1{font-size:clamp(2.8rem,5vw,4.8rem);font-weight:900;margin:0 0 14px;text-transform:uppercase}
+.page-hero p{max-width:800px;font-size:1rem;line-height:1.8;color:rgba(255,255,255,.86);margin:0}
+.section-pad{padding:80px 0}
+.section-title{font-size:2rem;font-weight:900;color:var(--vermelho-escuro);text-transform:uppercase;margin-bottom:10px}
+.section-lead{color:#555;max-width:800px;line-height:1.85;margin-bottom:34px}
+.memory-card,.memory-band{background:#fff;border-radius:18px;box-shadow:0 14px 35px rgba(0,0,0,.08);padding:28px;height:100%}
+.memory-card h3,.memory-band h3{font-size:1.15rem;font-weight:900;color:var(--vermelho-escuro);margin-bottom:12px}
+.memory-card p,.memory-band p{color:#555;line-height:1.85;margin:0 0 14px}
+.memory-card p:last-child,.memory-band p:last-child{margin-bottom:0}
+.quote-band{background:var(--vermelho-escuro);color:#fff;padding:70px 0}
+.quote-band blockquote{font-size:1.3rem;line-height:1.8;font-weight:300;max-width:900px;margin:0 auto;text-align:center}
+.footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.footer-brand-name{color:#fff;font-size:1.1rem;font-weight:900;line-height:1.2}
+.footer-brand-tagline{font-size:.6rem;letter-spacing:2px;color:rgba(255,255,255,.5);text-transform:uppercase}
+footer{background:var(--vermelho-escuro);padding:60px 0 0;color:#fff}
+.footer p{font-size:.85rem;line-height:1.8;color:rgba(255,255,255,.6)}
+.footer-col-title{font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:16px}
+.footer-links{list-style:none;padding:0;margin:0}
+.footer-links li{margin-bottom:8px}
+.footer-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.85rem}
+.footer-contact{font-size:.85rem}
+.footer-contact p{margin-bottom:6px;display:flex;align-items:flex-start;gap:8px}
+.footer-contact i{color:rgba(255,255,255,.5);margin-top:3px;min-width:14px}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);margin-top:50px;padding:20px 0;font-size:.75rem;color:rgba(255,255,255,.4)}
+.footer-bottom a{color:inherit;text-decoration:none;font-weight:700}
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg fixed-top"><div class="container"><a class="navbar-brand" href="quilombo_sem_textos_hero_FINAL_v2.html"><div class="brand-logo"><div class="brand-icon"><img src="logo-quilombo-pessoas.png" alt="Símbolo do Quilombo da Baixa da Xanda"></div><div>QUILOMBO<br>DA BAIXA<small>MEMÓRIA • RESISTÊNCIA • IDENTIDADE</small></div></div></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navMain"><ul class="navbar-nav mx-auto"><li class="nav-item"><a class="nav-link" href="quilombo_sem_textos_hero_FINAL_v2.html">Início</a></li><li class="nav-item"><a class="nav-link" href="historia.html">História</a></li><li class="nav-item"><a class="nav-link active" href="memoria.html">Memória</a></li><li class="nav-item"><a class="nav-link" href="acervo.html">Acervo</a></li><li class="nav-item"><a class="nav-link" href="noticias.html">Notícias</a></li><li class="nav-item"><a class="nav-link" href="galeria.html">Galeria</a></li><li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li></ul><div class="navbar-socials d-flex align-items-center"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div></div></div></nav>
+<div class="grafismo-bar top" aria-hidden="true"><svg viewBox="0 0 1280 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="gm1" width="160" height="56" patternUnits="userSpaceOnUse"><rect width="160" height="56" fill="#bf2026"/><g fill="#f2b43c"><polygon points="0,28 8,10 18,14 12,28 18,42 8,46"/><polygon points="24,8 40,8 34,28 40,48 24,48 30,28"/><polygon points="48,6 62,14 62,42 48,50 52,28"/><polygon points="72,8 84,8 92,20 92,36 84,48 72,48 80,28"/><polygon points="102,6 116,16 116,40 102,50 96,28"/><polygon points="128,8 144,8 138,28 144,48 128,48 134,28"/></g></pattern></defs><rect width="1280" height="56" fill="url(#gm1)"/></svg></div>
+<section class="page-hero"><div class="container"><div class="page-eyebrow">Narrativas, lembranças e legado</div><h1>Memória</h1><p>A memória da Baixa da Xanda não está só em documentos ou datas. Ela vive nas histórias contadas, na ligação com o território, nas festas, nas imagens e nas referências culturais que a comunidade preserva e compartilha.</p></div></section>
+<section class="section-pad"><div class="container"><div class="section-title">Memória como presença viva</div><p class="section-lead">Esta página separa a dimensão da memória da narrativa histórica institucional. Aqui, o foco está nos sentidos coletivos, na oralidade e nas referências que fazem da Baixa da Xanda um território de lembrança e continuidade.</p><div class="row g-4"><div class="col-lg-4"><div class="memory-card"><h3>Memória oral</h3><p>Grande parte do que se sabe e se sente sobre a Baixa da Xanda passa pelas histórias contadas entre moradores, famílias e lideranças. A oralidade sustenta vínculos, interpreta acontecimentos e preserva nomes, relações e afetos.</p></div></div><div class="col-lg-4"><div class="memory-card"><h3>Memória do território</h3><p>O território não é apenas espaço físico. Ele guarda rastros de convivência, práticas de trabalho, circulação comunitária e formas de permanência que ajudam a definir a identidade da comunidade.</p></div></div><div class="col-lg-4"><div class="memory-card"><h3>Memória cultural</h3><p>A ligação com Lindolfo Monteverde, com o Boi Garantido e com as expressões culturais de Parintins faz parte da memória pública que cerca a Baixa da Xanda e amplia seu significado para além da comunidade.</p></div></div></div></div></section>
+<section class="quote-band"><div class="container"><blockquote>"Memória não é só lembrar o que passou. É reconhecer o que permanece vivo no território, nas relações e na cultura da comunidade."</blockquote></div></section>
+<section class="section-pad"><div class="container"><div class="row g-4"><div class="col-lg-6"><div class="memory-band"><h3>O nome como memória</h3><p>A própria expressão “Baixa da Xanda” carrega memória. Ela nasce da lembrança de Dona Germana, chamada de Baixa, e Dona Alexandrina, conhecida como Xanda, tornando o nome do lugar um gesto de preservação afetiva e comunitária.</p><p>Essa permanência dos nomes no espaço mostra como a memória também estrutura o modo como a comunidade se reconhece.</p></div></div><div class="col-lg-6"><div class="memory-band"><h3>Imagens e registros</h3><p>Fotografias, vídeos, matérias e documentos reforçam a memória pública da comunidade. Eles não substituem a oralidade, mas ajudam a ampliar sua circulação e a preservar referências para as gerações futuras.</p><p>Por isso, memória e acervo caminham juntos dentro deste portal.</p></div></div></div></div></section>
+<div class="grafismo-bar bottom" aria-hidden="true"><svg viewBox="0 0 1280 56" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="gm2" width="160" height="56" patternUnits="userSpaceOnUse"><rect width="160" height="56" fill="#bf2026"/><g fill="#f2b43c"><polygon points="0,28 8,10 18,14 12,28 18,42 8,46"/><polygon points="24,8 40,8 34,28 40,48 24,48 30,28"/><polygon points="48,6 62,14 62,42 48,50 52,28"/><polygon points="72,8 84,8 92,20 92,36 84,48 72,48 80,28"/><polygon points="102,6 116,16 116,40 102,50 96,28"/><polygon points="128,8 144,8 138,28 144,48 128,48 134,28"/></g></pattern></defs><rect width="1280" height="56" fill="url(#gm2)"/></svg></div>
+<footer><div class="container"><div class="row g-5"><div class="col-lg-4 col-md-6"><div class="footer-brand"><div class="footer-brand-icon"><img src="logo-quilombo-pessoas.png" alt="Símbolo do Quilombo da Baixa da Xanda"></div><div><div class="footer-brand-name">QUILOMBO DA BAIXA</div><div class="footer-brand-tagline">Memória • Resistência • Identidade</div></div></div><p>Portal de memória e cultura do Quilombo da Baixa. Preservando nossas raízes e fortalecendo nossa identidade para as gerações futuras.</p></div><div class="col-lg-2 col-md-6 col-6"><div class="footer-col-title">— Institucional</div><ul class="footer-links"><li><a href="historia.html">Quem Somos</a></li><li><a href="historia.html#trajetoria">História do Quilombo</a></li><li><a href="historia.html#valores">Missão e Valores</a></li><li><a href="memoria.html">Memória</a></li></ul></div><div class="col-lg-2 col-md-6 col-6"><div class="footer-col-title">— Acervo</div><ul class="footer-links"><li><a href="galeria.html">Fotografias</a></li><li><a href="acervo.html#documentos">Documentos</a></li><li><a href="acervo.html#videos">Vídeos</a></li><li><a href="acervo.html#depoimentos">Depoimentos</a></li></ul></div><div class="col-lg-2 col-md-6 col-6"><div class="footer-col-title">— Links</div><ul class="footer-links"><li><a href="noticias.html">Notícias</a></li><li><a href="galeria.html">Galeria</a></li><li><a href="contato.html#agenda">Agenda</a></li><li><a href="contato.html">Contato</a></li></ul></div><div class="col-lg-2 col-md-6 col-6"><div class="footer-col-title">— Contato</div><div class="footer-contact"><p><i class="fa fa-phone"></i>(92) 99999-9999</p><p><i class="fa fa-envelope"></i>contato@quilombodabaixa.org.br</p><p><i class="fa fa-map-marker-alt"></i>, Baixa da Xanda, Parintins, Amazonas, Braisil.</p></div></div></div></div><div class="footer-bottom"><div class="container d-flex flex-wrap justify-content-between align-items-center"><span>© 2026 Quilombo da Baixa. Todos os direitos reservados.</span><span>Desenvolvido com orgulho por <a href="https://www.instagram.com/rey_monteverde/" target="_blank" rel="noopener noreferrer">Reinaldo Monteverde</a> para nossa comunidade.</span></div></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
